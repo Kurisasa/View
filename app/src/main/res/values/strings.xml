@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BloodHound</string>
+    <string name="description">Let us find where you are!!</string>
+    <string name="save_location">Save Location</string>
+    <string name="get_your_location">GET YOUR LOCATION</string>
+    <string name="tap_get_your_location_to_get_your_address">Tap get your location to get your address</string>
+</resources>
