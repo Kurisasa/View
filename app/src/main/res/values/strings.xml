@@ -1,7 +1,39 @@
 <resources>
     <string name="app_name">BloodHound</string>
-    <string name="description">Let us find where you are!!</string>
-    <string name="save_location">Save Location</string>
-    <string name="get_your_location">GET YOUR LOCATION</string>
-    <string name="tap_get_your_location_to_get_your_address">Tap get your location to get your address</string>
+
+    <string name="description">Tell BloodHound Where you Are!!</string>
+
+    <string-array name="location_providers">
+        <item>GPS</item>
+        <item>Bluetooth</item>
+        <item>RFID</item>
+    </string-array>
+
+    <string name="get_location">Get location</string>
+    <string name="location_permission_granted">Location permission granted</string>
+    <string name="location_access_required">Location access required</string>
+    <string name="ok">OK</string>
+
+    <string name="location_description">Location description</string>
+    <string name="location_name">Location name</string>
+
+    <string name="location_unavailable">Location unavailable</string>
+    <string name="weather_info_detail_txt">Temperature</string>
+    <string name="temperature_detail">20 Degrees</string>
+    <string name="add_location">Add Location</string>
+
+    <string name="add">Add Location</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="location_state">Location State</string>
+    <string name="gps_coordinates">GPS Coordinates</string>
+
+    <string name="edit_location">Edit Location</string>
+    <string name="location_details">Location Details</string>
+    <string name="timestamp">Date 01/01/2020 11 am</string>
+    <string name="coordinates">Coordinates</string>
+    <string name="weather_icon">Weather icon</string>
+
 </resources>

@@ -12,7 +12,7 @@
         <item name="android:colorBackground">@color/colorWhite</item>
     </style>
 
-     <!--Used to remove the actionbar elevation-->
+    <!--Used to remove the actionbar elevation-->
 
     <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
         <item name="elevation">0dp</item>
@@ -46,6 +46,12 @@
         <item name="android:textSize">@dimen/large_text</item>
     </style>
 
+    <style name="BlackCircle" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/xblack_oval</item>
+    </style>
+
     <style name="tv_list_item">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -67,6 +73,15 @@
     <style name="layout_item">
         <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>
