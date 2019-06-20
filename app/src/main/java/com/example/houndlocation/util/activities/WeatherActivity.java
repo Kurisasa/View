@@ -11,19 +11,19 @@ import android.util.Log;
 import com.example.houndlocation.R;
 import com.example.houndlocation.databinding.ActivityDetailLocationBinding;
 import com.example.houndlocation.util.viewmodel.DaggerViewModelFactory;
-import com.example.houndlocation.util.viewmodel.DetailLocationViewModel;
+import com.example.houndlocation.util.viewmodel.WeatherViewModel;
 
 import javax.inject.Inject;
 
 import dagger.android.support.DaggerAppCompatActivity;
 
-public class DetailLocationActivity extends DaggerAppCompatActivity {
+public class WeatherActivity extends DaggerAppCompatActivity {
 
-    private static final String TAG = DetailLocationActivity.class.getName();
+    private static final String TAG = WeatherActivity.class.getName();
 
     @Inject
     DaggerViewModelFactory viewModelFactory;
-    DetailLocationViewModel detailLocationViewModel;
+    WeatherViewModel weatherViewModel;
 
     int locationID;
 
@@ -44,18 +44,17 @@ public class DetailLocationActivity extends DaggerAppCompatActivity {
             Log.d(TAG, "No extra in bundle");
         }
 
-         detailLocationViewModel = ViewModelProviders.of(this, viewModelFactory)
-                .get(DetailLocationViewModel.class);
+         weatherViewModel = ViewModelProviders.of(this, viewModelFactory)
+                .get(WeatherViewModel.class);
 
         ActivityDetailLocationBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_location);
         binding.setLifecycleOwner(this);
-        binding.setViewmodel(detailLocationViewModel);
+        binding.setViewmodel(weatherViewModel);
 
         if (locationID != -1) {
-            detailLocationViewModel.start(locationID);
+            weatherViewModel.start(locationID);
         } else {
             Log.d(TAG, "No location found");
-//            throw new RuntimeException("No location found");
             finish();
         }
 

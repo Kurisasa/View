@@ -1,6 +1,6 @@
 package com.example.houndlocation.util.other;
 
-public interface AddEditLocationNavigator {
+public interface AddLocationNavigator {
     void onLocationSaved();
     void onLocationCancelled();
 }

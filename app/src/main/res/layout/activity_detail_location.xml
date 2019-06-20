@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.houndlocation.util.viewmodel.DetailLocationViewModel" />
+            type="com.example.houndlocation.util.viewmodel.WeatherViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView

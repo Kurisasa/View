@@ -1,7 +1,7 @@
 package com.example.houndlocation.util.di;
 
-import com.example.houndlocation.util.activities.AddEditLocationActivity;
-import com.example.houndlocation.util.activities.DetailLocationActivity;
+import com.example.houndlocation.util.activities.AddLocationActivity;
+import com.example.houndlocation.util.activities.WeatherActivity;
 import com.example.houndlocation.util.activities.MainActivity;
 
 import dagger.Module;
@@ -14,9 +14,9 @@ public abstract class ActivityBuilder {
     abstract MainActivity bindMainListActivity();
 
     @ContributesAndroidInjector
-    abstract AddEditLocationActivity bindAddEditLocationActivity();
+    abstract AddLocationActivity bindAddEditLocationActivity();
 
     @ContributesAndroidInjector
-    abstract DetailLocationActivity bindDetailsLocationActivity();
+    abstract WeatherActivity bindDetailsLocationActivity();
 
 }

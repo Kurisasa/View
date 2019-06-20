@@ -16,8 +16,8 @@ import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class AddEditLocationViewModel extends ViewModel {
-    private static final String TAG = AddEditLocationViewModel.class.getName();
+public class AddLocationViewModel extends ViewModel {
+    private static final String TAG = AddLocationViewModel.class.getName();
 
 
     protected LocationRepository locationRepository;
@@ -55,7 +55,7 @@ public class AddEditLocationViewModel extends ViewModel {
 
 
     @Inject
-    public AddEditLocationViewModel(LocationRepository repository) {
+    public AddLocationViewModel(LocationRepository repository) {
         this.locationRepository = repository;
 
     }
@@ -93,8 +93,6 @@ public class AddEditLocationViewModel extends ViewModel {
                     checkedSwitch.postValue(v.getLocationState());
 
                     String item = v.getLocationTypeName();
-
-                    //get index of type
 
                     for (int i = 0; i < entries.length; i++) {
                         if (entries[i].equals(item)) {

@@ -19,12 +19,12 @@ import com.example.houndlocation.R;
 import com.example.houndlocation.util.model.Location;
 
 
-public class LocationListAdapter extends PagedListAdapter<Location, LocationListAdapter.LocationViewHolder> {
+public class MyListAdapter extends PagedListAdapter<Location, MyListAdapter.LocationViewHolder> {
 
 
     private Context context;
 
-    protected LocationListAdapter(Context context) {
+    protected MyListAdapter(Context context) {
         super(DIFF_CALLBACK);
         this.context = context;
     }
@@ -57,11 +57,10 @@ public class LocationListAdapter extends PagedListAdapter<Location, LocationList
             holder.bindTo(location);
             holder.itemView.setOnClickListener(v -> {
 
-                Intent intent = new Intent(v.getContext(), DetailLocationActivity.class);
+                Intent intent = new Intent(v.getContext(), WeatherActivity.class);
                 intent.putExtra("LocationID", location.getUid());
-                Log.d("Adapter", "postion = " + location.getName() + " " + location.getUid());
+                Log.d("Adapter", "postion = " + location.getName() + " " + location.getUid() + " " + location.getTemperature());
                 v.getContext().startActivity(intent);
-
             });
         } else {
             holder.clear();
@@ -71,7 +70,7 @@ public class LocationListAdapter extends PagedListAdapter<Location, LocationList
     public void openDetails(Context context, int position){
         Location  location = getItem(position);
         if (location != null) {
-            Intent intent = new Intent(context, AddEditLocationActivity.class);
+            Intent intent = new Intent(context, AddLocationActivity.class);
             intent.putExtra("LocationID", location.getUid());
             context.startActivity(intent);
         }
@@ -81,12 +80,15 @@ public class LocationListAdapter extends PagedListAdapter<Location, LocationList
     TextView count;
     class LocationViewHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
 
+
+        TextView weather;
         TextView locationNameTextView;
         TextView locationDescriptionTextView;
         LinearLayout locationLayout;
 
         public LocationViewHolder(@NonNull View itemView) {
             super(itemView);
+            weather = itemView.findViewById(R.id.weather);
             locationNameTextView = itemView.findViewById(R.id.location_name);
             locationDescriptionTextView = itemView.findViewById(R.id.location_description);
             count = itemView.findViewById(R.id.count);
@@ -95,6 +97,7 @@ public class LocationListAdapter extends PagedListAdapter<Location, LocationList
 
 
         public void bindTo(Location location) {
+            //weather.setText(location.getTemperature());
             locationNameTextView.setText(location.getName());
             locationDescriptionTextView.setText(location.getDescription());
             locationLayout.setOnCreateContextMenuListener(this);

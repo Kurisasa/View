@@ -18,9 +18,9 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.houndlocation.R;
 import com.example.houndlocation.databinding.ActivityAddLocationBinding;
-import com.example.houndlocation.util.other.AddEditLocationNavigator;
+import com.example.houndlocation.util.other.AddLocationNavigator;
 import com.example.houndlocation.util.util.LocationProviderManager;
-import com.example.houndlocation.util.viewmodel.AddEditLocationViewModel;
+import com.example.houndlocation.util.viewmodel.AddLocationViewModel;
 import com.example.houndlocation.util.viewmodel.DaggerViewModelFactory;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
@@ -32,19 +32,19 @@ import javax.inject.Inject;
 import dagger.android.support.DaggerAppCompatActivity;
 
 
-public class AddEditLocationActivity extends DaggerAppCompatActivity implements AddEditLocationNavigator {
+public class AddLocationActivity extends DaggerAppCompatActivity implements AddLocationNavigator {
 
     @Inject
     DaggerViewModelFactory viewModelFactory;
 
-    AddEditLocationViewModel addViewModel;
+    AddLocationViewModel addViewModel;
 
     LocationProviderManager locationProviderManager;
     private static final int REQUEST_CODE_PERMISSION = 2;
 
     public static final int ADD_EDIT_RESULT_OK = RESULT_FIRST_USER + 1;
 
-    private static final String TAG = AddEditLocationActivity.class.getName();
+    private static final String TAG = AddLocationActivity.class.getName();
 
     Button btnShowLocation;
     TextInputEditText latEditText;
@@ -74,7 +74,7 @@ public class AddEditLocationActivity extends DaggerAppCompatActivity implements 
         }
 
          addViewModel = ViewModelProviders.of(this, viewModelFactory)
-                .get(AddEditLocationViewModel.class);
+                .get(AddLocationViewModel.class);
 
         ActivityAddLocationBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_add_location);
         binding.setLifecycleOwner(this);
@@ -101,14 +101,14 @@ public class AddEditLocationActivity extends DaggerAppCompatActivity implements 
         addViewModel.getmLocationUpdated().observe(this, new Observer<Void>() {
             @Override
             public void onChanged(Void aVoid) {
-                AddEditLocationActivity.this.onLocationSaved();
+                AddLocationActivity.this.onLocationSaved();
             }
         });
 
         addViewModel.getmLocationCancelled().observe(this, new Observer<Void>() {
             @Override
             public void onChanged(Void aVoid) {
-                AddEditLocationActivity.this.onLocationCancelled();
+                AddLocationActivity.this.onLocationCancelled();
             }
         });
     }
@@ -172,14 +172,13 @@ public class AddEditLocationActivity extends DaggerAppCompatActivity implements 
                 @Override
                 public void onClick(View view) {
                     // Request the permission
-                    ActivityCompat.requestPermissions(AddEditLocationActivity.this,
+                    ActivityCompat.requestPermissions(AddLocationActivity.this,
                             new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                             REQUEST_CODE_PERMISSION);
                 }
             }).show();
         } else {
             Snackbar.make(mLayout, R.string.location_unavailable, Snackbar.LENGTH_SHORT).show();
-            // Request the permission. The result will be received in onRequestPermissionResult().
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE_PERMISSION);
         }
@@ -187,7 +186,7 @@ public class AddEditLocationActivity extends DaggerAppCompatActivity implements 
 
 
     public void getLocation() {
-        locationProviderManager = new LocationProviderManager(AddEditLocationActivity.this);
+        locationProviderManager = new LocationProviderManager(AddLocationActivity.this);
         if (locationProviderManager.canGetLocation()) {
             double latitude = locationProviderManager.getLatitude();
             double longitude = locationProviderManager.getLongitude();

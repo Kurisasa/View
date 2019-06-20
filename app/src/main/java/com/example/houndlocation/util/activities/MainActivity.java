@@ -26,7 +26,7 @@ public class MainActivity extends DaggerAppCompatActivity {
     @Inject
     DaggerViewModelFactory viewModelFactory;
     LocationListViewModel locationListViewModel;
-    LocationListAdapter adapter;
+    MyListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +43,14 @@ public class MainActivity extends DaggerAppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //get view model
-         adapter = new LocationListAdapter(this);
+         adapter = new MyListAdapter(this);
         locationListViewModel.getAllLocations().observe(this, adapter::submitList);
         recyclerView.setAdapter(adapter);
 
         FloatingActionButton fab = findViewById(R.id.fab);
 
         fab.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AddEditLocationActivity.class);
+            Intent intent = new Intent(MainActivity.this, AddLocationActivity.class);
             startActivityForResult(intent, NEW_LOCATION_ACTIVITY_REQUEST_CODE);
         });
     }

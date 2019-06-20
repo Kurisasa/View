@@ -10,9 +10,9 @@ import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
-public class DetailLocationViewModel extends ViewModel {
+public class WeatherViewModel extends ViewModel {
 
-    private static final String TAG = DetailLocationViewModel.class.getName();
+    private static final String TAG = WeatherViewModel.class.getName();
 
     public LocationRepository locationRepository;
 
@@ -26,11 +26,11 @@ public class DetailLocationViewModel extends ViewModel {
 
     private int mLocationID;
 
-    public DetailLocationViewModel() {
+    public WeatherViewModel() {
     }
 
     @Inject
-    public DetailLocationViewModel(LocationRepository repository) {
+    public WeatherViewModel(LocationRepository repository) {
         this.locationRepository = repository;
 
     }

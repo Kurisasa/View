@@ -29,14 +29,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory;
 
 @Module
 public class DataModule {
-//    private static final String WEATHER_API_KEY = "aa7aa59bfd60ddf73816ad836743ab40";
 
     private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
 
     private AppDatabase appDatabase;
 
     public DataModule(Application application) {
-        this.appDatabase = Room.databaseBuilder(application, AppDatabase.class, "location_database")
+        this.appDatabase = Room.databaseBuilder(application, AppDatabase.class, "bloodhound_database")
                 .addCallback(new RoomDatabase.Callback() {
                     @Override
                     public void onCreate(@NonNull SupportSQLiteDatabase db) {

@@ -22,7 +22,6 @@ public class SingleLiveEvent<T> extends MutableLiveData<T> {
             Log.w(TAG, "Multiple observers registered but only one will be notified of changes.");
         }
 
-        // Observe the internal MutableLiveData
         super.observe(owner, new Observer<T>() {
             @Override
             public void onChanged(@Nullable T t) {
@@ -39,9 +38,6 @@ public class SingleLiveEvent<T> extends MutableLiveData<T> {
         super.setValue(t);
     }
 
-    /**
-     * Used for cases where T is Void, to make calls cleaner.
-     */
     @MainThread
     public void call() {
         setValue(null);

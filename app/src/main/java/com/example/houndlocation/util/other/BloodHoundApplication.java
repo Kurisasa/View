@@ -12,9 +12,9 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 
-public class LocationApplication extends Application implements HasActivityInjector {
+public class BloodHoundApplication extends Application implements HasActivityInjector {
 
-    private static LocationApplication app;
+    private static BloodHoundApplication app;
     @Inject
     DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
     AppComponent appComponent;
@@ -34,7 +34,7 @@ public class LocationApplication extends Application implements HasActivityInjec
         return dispatchingAndroidInjector;
     }
 
-    public static LocationApplication getApp(){
+    public static BloodHoundApplication getApp(){
         return app;
     }
     private void initDi() {

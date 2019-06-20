@@ -13,8 +13,10 @@ public class MockData {
     private List<Location> mockLocations = new ArrayList<>();
     public List<Location> generateLocations() {
 
-        String[] cities =   {"Pretoria", "Durban", "Cape Town", "Johannesburg", "Port Elizabeth", "Kwa-zulu Natal","Limpopo", "Minerlton", "Masina", "Venda", "Polokwane", "Louis Trichard",
-        "Upington", "Malamulele"};
+        String[] cities =   {"Mpumalanga", "BellVile", "Somerset West", "Green Point", "Pretoria", "Durban",
+                "Cape Town", "Johannesburg", "Port Elizabeth", "Kwa-zulu Natal","Limpopo",
+                "Minerlton", "Masina", "Venda", "Polokwane", "Louis Trichard", "Sea Point",
+                "Upington", "Malamulele", "Giyani"};
 
         Random rand = new Random();
 
@@ -30,7 +32,7 @@ public class MockData {
             @SuppressLint("DefaultLocale") Double d = Double.parseDouble(String.format("%.6f",rand.nextDouble())) ;
 
             Location location = new Location(randCity,
-                    "Home is where the heart is, where food is always warm", false,
+                    "Somewhere enjoying the view!", false,
                     "GPS", "", "",
                     String.format(Locale.getDefault(), "%.6f",rand.nextDouble()) ,
                     String.format(Locale.getDefault(), "%.6f",rand.nextDouble()),
